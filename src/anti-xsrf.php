@@ -42,8 +42,6 @@ class anti_xsrf {
 			));
 			$result = $statement->fetch();
 
-			echo "<hr>" .time() . " - " . $result["token_expires"];
-	
 			if (time() < $result["token_expires"]) {
 				$this->mark_token_used($result["token_id"]);
 				return true;
